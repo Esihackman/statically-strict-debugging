@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1747326558389" clover="3.2.0">
-  <project timestamp="1747326558389" name="All files">
+<coverage generated="1747327388457" clover="3.2.0">
+  <project timestamp="1747327388457" name="All files">
     <metrics statements="161" coveredstatements="39" conditionals="56" coveredconditionals="6" methods="51" coveredmethods="18" elements="268" coveredelements="63" complexity="0" loc="161" ncloc="161" packages="1" files="3" classes="3"/>
     <file name="advanceSettings.ts" path="C:\strict-debugger\statically-strict-debugger\js\advanceSettings.ts">
       <metrics statements="71" coveredstatements="16" conditionals="7" coveredconditionals="0" methods="20" coveredmethods="4"/>
