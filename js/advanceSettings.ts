@@ -9,7 +9,7 @@ export interface ComponentInterface {
   autoOff: string
 }
 
-import General from './general.js'
+import General from './general'
 import Light from './basicSettings'
 
 class AdvanceSettings extends Light {
