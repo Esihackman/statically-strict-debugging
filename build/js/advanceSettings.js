@@ -16,7 +16,6 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
 var _AdvanceSettings_instances, _AdvanceSettings_markup, _AdvanceSettings_analyticsUsage;
 // @ts-ignore
 import { Chart } from 'chart.js';
-// import General from './general.js'
 import Light from './basicSettings';
 class AdvanceSettings extends Light {
     constructor() {
@@ -54,7 +53,7 @@ class AdvanceSettings extends Light {
         const element = this.closestSelector(selectedElement, '.defaultOn', 'input');
         const { value } = element;
         // when value is falsy
-        if (!!value)
+        if (!value)
             return;
         const component = this.getComponentData(element, '.advanced_features', '.component_name');
         component.autoOn = value;
@@ -71,7 +70,7 @@ class AdvanceSettings extends Light {
         const element = this.closestSelector(selectedElement, '.defaultOff', 'input');
         const { value } = element;
         // when value is falsy
-        if (!!value)
+        if (!value)
             return;
         const component = this.getComponentData(element, '.advanced_features', '.component_name');
         component.autoOff = value;
@@ -225,7 +224,7 @@ _AdvanceSettings_instances = new WeakSet(), _AdvanceSettings_markup = function _
         options: {
             scales: {
                 y: {
-                    beginAtZero: true,
+                    beginAtZero: true
                 }
             }
         }

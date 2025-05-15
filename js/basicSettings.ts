@@ -1,6 +1,6 @@
 'use strict'
 
-import General from './general.js'
+import General from '../js/general'
 
 class Light extends General {
   constructor() {
@@ -51,7 +51,7 @@ class Light extends General {
 
   lightComponentSelectors(lightButtonElement: HTMLElement | null) {
     const room = this.getSelectedComponentName(lightButtonElement)!
-    const componentData = this.getComponent(room[0])
+    const componentData = this.getComponent(room)
     const childElement = lightButtonElement?.firstElementChild as HTMLElement
     const background = this.closestSelector(
       lightButtonElement,
@@ -69,7 +69,7 @@ class Light extends General {
     } = this.lightComponentSelectors(lightButtonElement)!
     const slider = this.closestSelector(
       lightButtonElement,
-      '.rooms',
+      '.rooms', 
       '#light_intensity'
     ) as HTMLInputElement
 
@@ -90,10 +90,10 @@ class Light extends General {
     }
   }
 
-  handleLightIntensitySlider(element: HTMLElement, intensity: string | number) {
+  handleLightIntensitySlider(element: HTMLElement, intensity: number) {
     const { componentData } = this.lightComponentSelectors(element)
 
-    if (typeof intensity !== 'number' || isNaN(Number(intensity))) return
+    if (typeof intensity !== 'number' || isNaN(intensity)) return
 
     componentData.lightIntensity = intensity
 
@@ -109,7 +109,7 @@ class Light extends General {
       return
     }
 
-    componentData.isLightOn = false
+    componentData.isLightOn = true
     this.sliderLight(componentData.isLightOn, lightSwitch)
   }
 

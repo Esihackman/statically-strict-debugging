@@ -1,6 +1,6 @@
 'use strict'
 // @ts-ignore
-import Chart from 'chart.js/auto'; // Simpler, auto-loads everything
+import { Chart } from 'chart.js'
 
 export interface ComponentInterface {
   name: string
@@ -9,7 +9,7 @@ export interface ComponentInterface {
   autoOff: string
 }
 
-// import General from './general.js'
+import General from './general.js'
 import Light from './basicSettings'
 
 class AdvanceSettings extends Light {
@@ -85,23 +85,30 @@ class AdvanceSettings extends Light {
         `
   }
 
- #analyticsUsage(data: number[]) {
-  const ctx = this.selector('#myChart') as HTMLCanvasElement;
-  new Chart(ctx, { // ✅ Now using the global Chart from CDN
-    type: 'line',
-    data: {
-      labels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat'],
-      datasets: [{
-        label: 'Hours of usage',
-        data: data,
-        borderWidth: 1
-      }]
-    },
-    options: {
-      scales: { y: { beginAtZero: true } }
-    }
-  });
-}
+  #analyticsUsage(data: number[]) {
+    const ctx = this.selector('#myChart') as HTMLCanvasElement
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat'],
+        datasets: [
+          {
+            label: 'Hours of usage',
+            data: data,
+            borderWidth: 1
+          }
+        ]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    })
+  }
+
   modalPopUp(element: HTMLElement) {
     const selectedRoom = this.getSelectedComponentName(element)!
     const componentData = this.getComponent(selectedRoom)
@@ -160,7 +167,7 @@ class AdvanceSettings extends Light {
     const { value } = element
 
     // when value is falsy
-    if (!!value) return
+    if (!value) return
 
     const component = this.getComponentData(
       element,
@@ -192,7 +199,7 @@ class AdvanceSettings extends Light {
     const { value } = element
 
     // when value is falsy
-    if (!!value) return
+    if (!value) return
 
     const component = this.getComponentData(
       element,
@@ -215,7 +222,7 @@ class AdvanceSettings extends Light {
     this.automateLight(component['autoOff'], component.autoOff)
   }
 
-  getSelectedComponent(componentName: string) {
+  getSelectedComponent(componentName: string): ComponentInterface {
     if (!componentName) return this.componentsData[0]
     const component = this.componentsData[componentName.toLowerCase()]
     return component
