@@ -1,0 +1,45 @@
+Smart Light Control System
+A TypeScript-based smart lighting application that empowers users to manage and automate lighting across individual rooms or entire buildings. With a clean, responsive interface, users can adjust lights in real-time or configure automated schedules for a smarter, energy-efficient environment.
+
+✅ Project Status
+✅ Fully functional and production-ready
+
+✅ All known bugs resolved
+
+✅ Core and advanced features implemented
+
+✅ Codebase optimized with strict TypeScript typing and modular structure
+
+ Key Features
+ Light Regulation
+Adjustable light intensity per room using interactive sliders
+
+Light state (ON/OFF) auto-updates based on intensity level
+
+⏱ Smart Scheduling
+Create automated lighting presets with start and end times
+
+Enables scheduled ON/OFF transitions for energy-saving convenience
+
+
+ Technologies Used
+
+TypeScript – for strict typing and maintainable code structure
+
+HTML/CSS – for building a responsive and intuitive user interface
+
+Modular JavaScript/TypeScript – logical separation of concerns (e.g., basicSettings.ts, advanceSettings.ts)
+
+Local DOM Event Handling – for real-time user interaction and feedback
+
+        Bug Fix Highlights
+
+✅ Resolved slider value typecasting (string ➝ number)
+
+✅ Fixed logic governing light ON/OFF state transitions
+
+✅ Corrected toggle behavior in automated schedule presets
+
+✅ Cleaned import paths and enforced strict TypeScript types
+
+✅ Implemented null checks and guard clauses to prevent runtime crashes
